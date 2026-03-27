@@ -1,0 +1,12 @@
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  color: #00ffcc;
+}
+
+.table td {
+  vertical-align: middle;
+}

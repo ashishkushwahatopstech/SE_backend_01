@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <label>Name:</label>
+            <input type="text" name="st_name" placeholder="Your Name">
+
+            <label>Age:</label>
+            <input type="text" name="st_age" placeholder="Your Age">
+
+            <label>Contact:</label>
+            <input type="text" name="st_number" placeholder="977XXXXX42">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+        <h1>Student List</h1>
+
+    {% for student in students %}
+        <p>Name: {{ student.name }}</p>
+        <!-- <p>Age: {{ student.age }}</p> -->
+        <hr>
+    {% endfor %}
+
+
+{% endblock %}

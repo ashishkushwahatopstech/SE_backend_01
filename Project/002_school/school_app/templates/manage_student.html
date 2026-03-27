@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="erp-container">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <h4>👨‍🎓 Students</h4>
+
+    <a href="{% url 'add-student' %}" class="menu-btn">
+      ➕ Add Student
+    </a>
+
+    <a href="{% url 'view-student' %}" class="menu-btn">
+      👁 View Students
+    </a>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+<div class="content">
+    <h2>Welcome to Student Management</h2>
+    <p>Select an option from the left panel.</p>
+    {% block student_content %}
+
+    {% endblock %}
+
+</div>
+
+</div>
+
+{% endblock %}

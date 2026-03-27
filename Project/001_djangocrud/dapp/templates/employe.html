@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- 🔹 ADD EMPLOYEE FORM -->
+    <form method="post">
+        {% csrf_token %}
+
+        <h3>Add Employee</h3>
+
+        <label>Name:</label>
+        <input type="text" name="emp_name" placeholder="Your Name">
+
+        <label>Age:</label>
+        <input type="text" name="emp_age" placeholder="Your Age">
+
+        <label>Contact:</label>
+        <input type="text" name="emp_number" placeholder="977XXXXX42">
+
+        <input type="submit" value="Save">
+    </form>
+
+
+</div>
+
+{% endblock %}
