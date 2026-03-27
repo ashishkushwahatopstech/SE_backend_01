@@ -2,10 +2,95 @@
 
 {% block content %}
 
-<h2>Home</h2>
+<div class="container-fluid mt-4">
 
+    <!-- Welcome -->
+    <h2 class="mb-4">🏫 School Dashboard</h2>
 
+    <!-- ===== SUMMARY CARDS ===== -->
+    <div class="row g-4">
 
+        <div class="col-md-3">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body">
+                    <h5>Total Students</h5>
+                    <h3>{{ total_students }}</h3>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-md-3">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body">
+                    <h5>Total Teachers</h5>
+                    <h3>{{ total_teachers }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body">
+                    <h5>Attendance Today</h5>
+                    <h3>95%</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body">
+                    <h5>Pending Fees</h5>
+                    <h3>₹50,000</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== QUICK ACTIONS ===== -->
+    <div class="mt-5">
+        <h4>⚡ Quick Actions</h4>
+
+        <div class="row g-3 mt-2">
+
+            <div class="col-md-3">
+                <a href="/add-student" class="btn btn-outline-light w-100">➕ Add Student</a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/view-student" class="btn btn-outline-light w-100">👁 View Students</a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="#" class="btn btn-outline-light w-100">👩‍🏫 Add Teacher</a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="#" class="btn btn-outline-light w-100">📅 Mark Attendance</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== RECENT ACTIVITY ===== -->
+    <div class="mt-5">
+        <h4>📢 Recent Activity</h4>
+
+        <div class="card bg-dark text-white mt-3">
+            <div class="card-body">
+
+                <ul>
+                    <li>New student "Rahul" added</li>
+                    <li>Exam schedule updated</li>
+                    <li>Fee reminder sent</li>
+                    <li>New notice uploaded</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}

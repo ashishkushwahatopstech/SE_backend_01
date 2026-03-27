@@ -3,7 +3,15 @@ from school_app.models import *
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html")
+    total_students = add_students.objects.count()
+    # total_teachers = add_teachers.objects.count()
+
+    return render(request, 'index.html', {
+        'total_students': total_students,
+        # 'total_teachers': total_teachers
+    })
+
+    # return render(request, "index.html")
 
 def manage_attendence(request):
     return render(request, "manage_attendence.html")
@@ -51,4 +59,41 @@ def view_student(request):
     students = add_students.objects.all()
     return render(request, "view_student.html", {"students": students})
 
+def manage_teacher(request):
+    return render(request, "manage_teacher.html")
+
+
+def add_teacher(request):
+    if request.method == "POST":
+        data = request.POST
+        Name = data.get("name")
+        Gender = data.get("gender")
+        Dob = data.get("dob")
+        Email = data.get("email")
+        Phone = data.get("phone")
+        Subject = data.get("subject")
+        Qualifications = data.get("qualification")
+        Experience = data.get("experience")
+        Join_date = data.get("join_date")
+        Address = data.get("address")
+
+        add_teachers.objects.create(
+            Full_Name = Name,
+            Gender = Gender,
+            Dob = Dob,
+            Email = Email,
+            Phone = Phone,
+            Subject = Subject,
+            Qualifications = Qualifications,
+            Experience = Experience,
+            Join_Date = Join_date,
+            Address = Address
+        )
+        return redirect("mng-teacher")
+    # add_teachers.objects.all()
+    return render(request, "teacher/add_teacher.html", {"add_teachers": add_teachers})
+
+def view_teacher(request):
+    teachers = add_teachers.objects.all()
+    return render(request, "teacher/view_teacher.html", {"teachers": teachers})
 

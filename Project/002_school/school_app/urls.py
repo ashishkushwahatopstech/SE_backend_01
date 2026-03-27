@@ -11,6 +11,9 @@ urlpatterns = [
     path('notice-board', notice_board, name="notice-board"),
     path('add-student', add_student, name="add-student"),
     path('view-student', view_student, name="view-student"),
+    path('view-teacher', view_teacher, name="view-teacher"),
+    path('add-teacher', add_teacher, name="add-teacher"),
+    path('mng-teacher', manage_teacher, name="mng-teacher"),
 
     
 ]
