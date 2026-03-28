@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="erp-container">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <h4>👨‍🎓 Students</h4>
+
+    <a href="{% url 'add-teacher' %}" class="menu-btn  {% if request.resolver_match.url_name == 'add-teacher' %}active{% endif %}">
+      ➕ Add Teacher
+    </a>
+
+    <a href="{% url 'view-teacher' %}" class="menu-btn {% if request.resolver_match.url_name == 'view-teacher' %}active{% endif %}">
+      👁 View Teacher
+    </a>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+<div class="content">
+    <h2>Welcome to Student Management</h2>
+    <p>Select an option from the left panel.</p>
+    {% block teacher_content %}
+
+    {% endblock %}
+
+</div>
+
+</div>
+
+{% endblock %}

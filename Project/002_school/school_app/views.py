@@ -60,7 +60,7 @@ def view_student(request):
     return render(request, "view_student.html", {"students": students})
 
 def manage_teacher(request):
-    return render(request, "manage_teacher.html")
+    return render(request, "teacher/manage_teacher.html")
 
 
 def add_teacher(request):

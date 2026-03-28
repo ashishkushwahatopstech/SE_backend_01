@@ -9,11 +9,11 @@
   <div class="sidebar">
     <h4>👨‍🎓 Students</h4>
 
-    <a href="{% url 'add-student' %}" class="menu-btn">
+    <a href="{% url 'add-student' %}" class="menu-btn {% if request.resolver_match.url_name == 'add-student' %}active{% endif %}">
       ➕ Add Student
     </a>
 
-    <a href="{% url 'view-student' %}" class="menu-btn">
+    <a href="{% url 'view-student' %}" class="menu-btn {% if request.resolver_match.url_name == 'view-student' %}active{% endif %}">
       👁 View Students
     </a>
   </div>
