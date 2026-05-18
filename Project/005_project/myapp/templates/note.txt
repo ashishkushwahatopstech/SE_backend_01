@@ -1,0 +1,59 @@
+{% url 'facility_detail' slug='free-weights' %}
+<!-- Django: <a href="{% url 'dashboard' %}">Go to App →</a> -->
+<!-- Django: <a href="{% url 'book_pt' %}"> -->
+<!-- Django: <form method="POST" action="{% url 'checkout' %}"> -->
+<!-- Django: <a href="{% url 'terms' %}"> -->
+
+<!-- Django: <a href="{% url 'dashboard' %}"> -->
+
+<!-- Django: {% if user.is_authenticated %} -->    <!-- Django: {% endif %} -->
+
+<!-- Django: {% for plan in plans %} -->   <!-- Django: {% endfor %} -->
+
+<!-- Django: <a href="{% url 'checkout' plan_id=plan.id %}"> -->
+
+<!-- Django: {% for faq in faqs %} -->    <!-- Django: {% endfor %} -->
+
+<!-- Django: {% for class in classes %} -->     <!-- Django: {% endfor %} -->
+
+<!-- Django: <a href="{% url 'trainer' class.trainer.slug %}"> -->
+
+
+<!-- Django: <a href="{% url 'book_class' class.id %}"> -->
+
+
+<!-- Django: {% for class in featured_classes %} --> <!-- Django: {% endfor %} -->
+
+<!-- Django: <a href="{% url 'class_detail' class.slug %}">Book Slot →</a> -->   
+
+<!-- Django: {% for trainer in trainers %} --> <!-- Django: {% endfor %} -->
+
+<!-- Django: <a href="{% url 'trainer_detail' trainer.slug %}">View Profile →</a> -->
+
+
+<!-- Django: {% for review in reviews %} --> <!-- Django: {% endfor %} -->
+
+
+
+
+memberships 
+<!-- for plan in plan --> 
+
+<!-- Django: {% for goal in goals %}<option value="{{ goal.id }}">{{ goal.name }}</option>{% endfor %} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

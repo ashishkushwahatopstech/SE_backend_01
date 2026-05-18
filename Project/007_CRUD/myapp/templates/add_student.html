@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Students Details</h2>
+<form action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <input type="hidden" name="student_id" value="{{student.id}}">
+    <input type="text" name="fname" placeholder="First Name" value="{{student.first_name}}">
+    <input type="text" name="lname" placeholder="Last Name" value="{{student.last_name}}">
+    <input type="file" name="image" id="" {%if student.image %} value="{{student.image}}" {%endif%}>
+    <input type="email" name="email" placeholder="email id" value="{{student.email}}">
+    <input type="text" name="contact" placeholder="Contact Number" value="{{student.contact}}">
+    
+    <button type="submit">Add</button>
+</form>
+
+{% endblock %}

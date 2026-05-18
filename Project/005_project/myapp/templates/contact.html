@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-tag">// GET IN TOUCH</p>
+      <h1>Contact<span> Us</span></h1>
+      <p>Questions, free trial, or just want to see the gym? Come forge with us.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO STRIP -->
+  <section class="contact-info-strip">
+    <div class="container">
+      <div class="info-cards">
+        <!-- Django: {{ gym.address }}, {{ gym.phone }}, {{ gym.email }} -->
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Location</h3>
+          <p>Plot 42, Ring Road,<br/>Vesu, Surat — 395007<br/>Gujarat, India</p>
+          <a href="https://maps.google.com" target="_blank" class="card-link">Get Directions →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <h3>Phone & WhatsApp</h3>
+          <p>+91 96382 00000<br/>+91 90000 11111</p>
+          <a href="https://wa.me/919638200000" class="card-link">Chat on WhatsApp →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <h3>Email</h3>
+          <p>info@ironforge.in<br/>membership@ironforge.in</p>
+          <a href="mailto:info@ironforge.in" class="card-link">Send Email →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Opening Hours</h3>
+          <!-- Django: {{ gym_hours }} -->
+          <p>Mon – Fri: 5AM – 11PM<br/>Saturday: 6AM – 10PM<br/>Sunday: 7AM – 9PM</p>
+          <span class="open-now-badge">● Open Now</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM + MAP -->
+  <section class="contact-main">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- CONTACT FORM -->
+        <div class="contact-form-wrap">
+          <p class="section-tag">// SEND A MESSAGE</p>
+          <h2>We'll get back<br/>within <span>24 hours.</span></h2>
+
+          <!-- Django: <form method="POST" action="{% url 'contact' %}"> -->
+          <!-- Django: {% csrf_token %} -->
+          <!-- Django: {% if form.errors %}<div class="form-errors">{{ form.errors }}</div>{% endif %} -->
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <!-- Django: {{ form.name }} -->
+              <input type="text" class="form-input" placeholder="Ashish Patel"/>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" class="form-input" placeholder="you@email.com"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" class="form-input" placeholder="+91 9876543210"/>
+          </div>
+          <div class="form-group">
+            <label>Subject / Reason for Contact</label>
+            <!-- Django: {{ form.subject }} -->
+            <select class="form-input" id="subjectSelect" onchange="handleSubject(this)">
+              <option value="">Select a topic...</option>
+              <option value="trial">Book a Free Trial</option>
+              <option value="membership">Membership Enquiry</option>
+              <option value="pt">Personal Training</option>
+              <option value="classes">Class Schedule</option>
+              <option value="corporate">Corporate Membership</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Trial Booking Extra Fields — shown conditionally -->
+          <!-- Django: use Django forms with conditional rendering -->
+          <div class="conditional-fields" id="trialFields" style="display:none;">
+            <div class="form-group">
+              <label>Preferred Trial Date</label>
+              <input type="date" class="form-input" id="trialDate"/>
+            </div>
+            <div class="form-group">
+              <label>Preferred Time Slot</label>
+              <select class="form-input">
+                <!-- Django: {% for slot in available_slots %} -->
+                <option>6:00 AM – 7:00 AM</option>
+                <option>7:00 AM – 8:00 AM</option>
+                <option>9:00 AM – 10:00 AM</option>
+                <option>6:00 PM – 7:00 PM</option>
+                <option>7:00 PM – 8:00 PM</option>
+                <!-- Django: {% endfor %} -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Which class are you interested in?</label>
+              <select class="form-input">
+                <!-- Django: {% for class in classes %} -->
+                <option>CrossFit Forge</option>
+                <option>HIIT Blast</option>
+                <option>Power Yoga</option>
+                <option>Boxing Fundamentals</option>
+                <option>Open Gym (No Class)</option>
+                <!-- Django: {% endfor %} -->
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Message</label>
+            <!-- Django: {{ form.message }} -->
+            <textarea class="form-input" rows="5" placeholder="Tell us anything — your goals, questions, or concerns..."></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="newsletter"/>
+            <label for="newsletter">Subscribe to IronForge newsletter (class updates, offers, tips)</label>
+          </div>
+
+          <!-- Django: <button type="submit"> -->
+          <button class="btn-primary large full-w" onclick="handleContactSubmit(event)">Send Message</button>
+          <!-- Django: </form> -->
+
+          <!-- Django: {% if success %} -->
+          <div class="success-inline" id="formSuccess" style="display:none;">
+            ✅ Your message has been sent! We'll reach out within 24 hours.
+          </div>
+          <!-- Django: {% endif %} -->
+        </div>
+
+        <!-- MAP + VISIT INFO -->
+        <div class="map-section">
+          <!-- Django: Replace with actual embed or dynamic map -->
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.3143597289846!2d72.8084!3d21.1702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEwJzEyLjciTiA3MsKwNDgnMzAuMiJF!5e0!3m2!1sen!2sin!4v0"
+              width="100%" height="300" style="border:0" allowfullscreen loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="visit-info">
+            <h3>Plan Your Visit</h3>
+            <div class="visit-detail">
+              <span class="visit-icon">🚇</span>
+              <div>
+                <strong>Nearest Landmark</strong>
+                <p>VR Mall Surat — 5 min walk</p>
+              </div>
+            </div>
+            <div class="visit-detail">
+              <span class="visit-icon">🅿️</span>
+              <div>
+                <strong>Parking</strong>
+                <p>Free parking for 100+ vehicles on premises</p>
+              </div>
+            </div>
+            <div class="visit-detail">
+              <span class="visit-icon">🚌</span>
+              <div>
+                <strong>Public Transport</strong>
+                <p>BRTS Stop: Ring Road Vesu — 2 min walk</p>
+              </div>
+            </div>
+            <div class="visit-detail">
+              <span class="visit-icon">🎁</span>
+              <div>
+                <strong>First Visit?</strong>
+                <p>Walk in for a free 3-day trial. No booking needed!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="social-section">
+            <h3>Follow Us</h3>
+            <div class="social-grid">
+              <!-- Django: {{ gym.instagram_url }} etc -->
+              <a href="#" class="social-card">
+                <span class="social-icon">📸</span>
+                <span>Instagram</span>
+                <span class="social-handle">@ironforge_surat</span>
+              </a>
+              <a href="#" class="social-card">
+                <span class="social-icon">▶️</span>
+                <span>YouTube</span>
+                <span class="social-handle">IronForge Official</span>
+              </a>
+              <a href="#" class="social-card">
+                <span class="social-icon">👥</span>
+                <span>Facebook</span>
+                <span class="social-handle">/ironforgesurat</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS SECTION -->
+  <section class="quick-access">
+    <div class="container">
+      <p class="section-tag center">// QUICK ACCESS</p>
+      <h2 class="section-title center">What are you looking for?</h2>
+      <div class="quick-grid">
+        <!-- Django: {% url 'membership' %}, {% url 'classes' %}, etc -->
+        <a href="{% url 'membership' %}" class="quick-card">
+          <span class="quick-icon">💳</span>
+          <h3>Buy Membership</h3>
+          <p>Browse plans and sign up online in minutes</p>
+        </a>
+        <a href="{% url 'classes' %}" class="quick-card">
+          <span class="quick-icon">📅</span>
+          <h3>Class Schedule</h3>
+          <p>See this week's full timetable and book a slot</p>
+        </a>
+        <a href="#" class="quick-card">
+          <!-- dashboard -->
+          
+          <span class="quick-icon">👤</span>
+          <h3>Member Portal</h3>
+          <p>Manage your profile, classes, and payments</p>
+        </a>
+        <a href="#" class="quick-card">
+          <span class="quick-icon">🍎</span>
+          <h3>Diet Consultation</h3>
+          <p>Book a session with our certified nutritionist</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

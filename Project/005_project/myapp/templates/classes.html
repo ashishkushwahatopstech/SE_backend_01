@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-tag">// TRAINING PROGRAMS</p>
+      <h1>Classes &<span> Schedule</span></h1>
+      <p>Over 40 weekly classes across every discipline. Find your fire.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section class="filter-bar">
+    <div class="container">
+      <!-- Django: This should be a form GET with filter params -->
+      <!-- <form method="GET" action="{% url 'classes' %}"> -->
+      <div class="filters">
+        <span class="filter-label">Filter by:</span>
+        <!-- Django: ?category=all / ?category=strength etc -->
+        <a href="#" class="filter-btn active" data-filter="all">All Classes</a>
+        <a href="#" class="filter-btn" data-filter="strength">Strength</a>
+        <a href="#" class="filter-btn" data-filter="cardio">Cardio</a>
+        <a href="#" class="filter-btn" data-filter="hiit">HIIT</a>
+        <a href="#" class="filter-btn" data-filter="yoga">Yoga</a>
+        <a href="#" class="filter-btn" data-filter="boxing">Boxing</a>
+        <a href="#" class="filter-btn" data-filter="dance">Dance</a>
+      </div>
+      <div class="search-box">
+        <!-- Django: <input name="q" value="{{ request.GET.q }}" ...> -->
+        <input type="text" placeholder="Search classes..." class="search-input"/>
+      </div>
+      <!-- </form> -->
+    </div>
+  </section>
+
+  <!-- CLASSES GRID -->
+  <section class="classes-full">
+    <div class="container">
+      <div class="classes-grid">
+        <!-- class in classes -->
+        
+        <div class="class-full-card" data-category="strength">
+          <div class="cfcard-img" style="background: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600') center/cover">
+            <span class="level-tag advanced">Advanced</span>
+            <span class="popular-tag">🔥 Popular</span>
+          </div>
+          <div class="cfcard-body">
+            <div class="cfcard-header">
+              <h3>CrossFit Forge</h3>
+              <span class="cfcard-category">Strength</span>
+            </div>
+            <p>Olympic lifting, gymnastics, and metabolic conditioning. The ultimate test of functional fitness.</p>
+            <div class="cfcard-details">
+              <div class="detail-row">
+                <span class="detail-label">Duration</span>
+                <span>60 minutes</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Trainer</span>
+                <!-- url trainer  class trainer slug -->
+                
+                <span>Coach Rajesh Patel</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Capacity</span>
+                <!-- Django: {{ class.enrolled }}/{{ class.capacity }} spots left -->
+                <span>18/20 enrolled</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Schedule</span>
+                <span>Mon, Wed, Fri · 6:00 AM</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Calories</span>
+                <span>~700–900 kcal/session</span>
+              </div>
+            </div>
+            <div class="cfcard-footer">
+              <div class="slots-bar">
+                <div class="slots-fill" style="width: 90%"></div>
+              </div>
+              <span class="slots-text">2 spots left!</span>
+              url boo_class class.id
+              
+              <a href="#" class="btn-primary full-w">Book This Class</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-full-card" data-category="hiit">
+          <div class="cfcard-img" style="background: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600') center/cover">
+            <span class="level-tag intermediate">Intermediate</span>
+            <span class="popular-tag new-tag">✨ New</span>
+          </div>
+          <div class="cfcard-body">
+            <div class="cfcard-header">
+              <h3>HIIT Blast</h3>
+              <span class="cfcard-category">HIIT</span>
+            </div>
+            <p>45-minute fat-torching intervals. Maximum output, maximum results. Bring a towel.</p>
+            <div class="cfcard-details">
+              <div class="detail-row"><span class="detail-label">Duration</span><span>45 minutes</span></div>
+              <div class="detail-row"><span class="detail-label">Trainer</span><span>Coach Meera Shah</span></div>
+              <div class="detail-row"><span class="detail-label">Capacity</span><span>14/20 enrolled</span></div>
+              <div class="detail-row"><span class="detail-label">Schedule</span><span>Tue, Thu, Sat · 7:00 AM</span></div>
+              <div class="detail-row"><span class="detail-label">Calories</span><span>~500–650 kcal/session</span></div>
+            </div>
+            <div class="cfcard-footer">
+              <div class="slots-bar"><div class="slots-fill" style="width: 70%"></div></div>
+              <span class="slots-text">6 spots left</span>
+              <a href="#" class="btn-primary full-w">Book This Class</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-full-card" data-category="yoga">
+          <div class="cfcard-img" style="background: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600') center/cover">
+            <span class="level-tag beginner">Beginner</span>
+          </div>
+          <div class="cfcard-body">
+            <div class="cfcard-header">
+              <h3>Power Yoga</h3>
+              <span class="cfcard-category">Yoga</span>
+            </div>
+            <p>Build a strong foundation of flexibility, balance, and breath control. All bodies welcome.</p>
+            <div class="cfcard-details">
+              <div class="detail-row"><span class="detail-label">Duration</span><span>50 minutes</span></div>
+              <div class="detail-row"><span class="detail-label">Trainer</span><span>Coach Anita Verma</span></div>
+              <div class="detail-row"><span class="detail-label">Capacity</span><span>8/15 enrolled</span></div>
+              <div class="detail-row"><span class="detail-label">Schedule</span><span>Daily · 7:00 AM & 7:00 PM</span></div>
+              <div class="detail-row"><span class="detail-label">Calories</span><span>~200–350 kcal/session</span></div>
+            </div>
+            <div class="cfcard-footer">
+              <div class="slots-bar"><div class="slots-fill" style="width: 53%"></div></div>
+              <span class="slots-text">7 spots left</span>
+              <a href="#" class="btn-primary full-w">Book This Class</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-full-card" data-category="boxing">
+          <div class="cfcard-img" style="background: url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=600') center/cover">
+            <span class="level-tag intermediate">Intermediate</span>
+          </div>
+          <div class="cfcard-body">
+            <div class="cfcard-header">
+              <h3>Boxing Fundamentals</h3>
+              <span class="cfcard-category">Boxing</span>
+            </div>
+            <p>Footwork, combos, and bag work. Master the sweet science and get insanely fit doing it.</p>
+            <div class="cfcard-details">
+              <div class="detail-row"><span class="detail-label">Duration</span><span>60 minutes</span></div>
+              <div class="detail-row"><span class="detail-label">Trainer</span><span>Coach Arjun Mehta</span></div>
+              <div class="detail-row"><span class="detail-label">Capacity</span><span>10/12 enrolled</span></div>
+              <div class="detail-row"><span class="detail-label">Schedule</span><span>Mon, Wed · 6:00 PM</span></div>
+              <div class="detail-row"><span class="detail-label">Calories</span><span>~600–800 kcal/session</span></div>
+            </div>
+            <div class="cfcard-footer">
+              <div class="slots-bar"><div class="slots-fill" style="width: 83%"></div></div>
+              <span class="slots-text">2 spots left!</span>
+              <a href="#" class="btn-primary full-w">Book This Class</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-full-card" data-category="cardio">
+          <div class="cfcard-img" style="background: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600') center/cover">
+            <span class="level-tag beginner">Beginner</span>
+          </div>
+          <div class="cfcard-body">
+            <div class="cfcard-header">
+              <h3>Spin Cycle</h3>
+              <span class="cfcard-category">Cardio</span>
+            </div>
+            <p>Indoor cycling to pulsing music. Build leg power and cardiovascular endurance in just 45 min.</p>
+            <div class="cfcard-details">
+              <div class="detail-row"><span class="detail-label">Duration</span><span>45 minutes</span></div>
+              <div class="detail-row"><span class="detail-label">Trainer</span><span>Coach Pooja Desai</span></div>
+              <div class="detail-row"><span class="detail-label">Capacity</span><span>20/25 enrolled</span></div>
+              <div class="detail-row"><span class="detail-label">Schedule</span><span>Tue, Thu · 8:00 AM</span></div>
+              <div class="detail-row"><span class="detail-label">Calories</span><span>~400–500 kcal/session</span></div>
+            </div>
+            <div class="cfcard-footer">
+              <div class="slots-bar"><div class="slots-fill" style="width: 80%"></div></div>
+              <span class="slots-text">5 spots left</span>
+              <a href="#" class="btn-primary full-w">Book This Class</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-full-card" data-category="dance">
+          <div class="cfcard-img" style="background: url('https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600') center/cover">
+            <span class="level-tag beginner">All Levels</span>
+          </div>
+          <div class="cfcard-body">
+            <div class="cfcard-header">
+              <h3>Zumba Party</h3>
+              <span class="cfcard-category">Dance</span>
+            </div>
+            <p>High-energy Latin dance fitness. No rhythm required — just energy and good vibes.</p>
+            <div class="cfcard-details">
+              <div class="detail-row"><span class="detail-label">Duration</span><span>60 minutes</span></div>
+              <div class="detail-row"><span class="detail-label">Trainer</span><span>Coach Priya Nair</span></div>
+              <div class="detail-row"><span class="detail-label">Capacity</span><span>30/30 enrolled</span></div>
+              <div class="detail-row"><span class="detail-label">Schedule</span><span>Saturday · 8:00 AM</span></div>
+              <div class="detail-row"><span class="detail-label">Calories</span><span>~400–600 kcal/session</span></div>
+            </div>
+            <div class="cfcard-footer">
+              <div class="slots-bar"><div class="slots-fill" style="width: 100%"></div></div>
+              <span class="slots-text full-class">Class Full — Join Waitlist</span>
+              <!-- Django: {% if class.is_full %} join waitlist {% else %} book {% endif %} -->
+              <a href="#" class="btn-outline full-w">Join Waitlist</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- endfor -->
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEKLY SCHEDULE TABLE -->
+  <section class="schedule-section">
+    <div class="container">
+      <p class="section-tag center">// WEEKLY TIMETABLE</p>
+      <h2 class="section-title center">This Week's Schedule</h2>
+      <!-- Django: This table should be generated from Schedule model -->
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">5:00 AM</td>
+              <td><div class="sched-block strength">Open Gym</div></td>
+              <td><div class="sched-block strength">Open Gym</div></td>
+              <td><div class="sched-block strength">Open Gym</div></td>
+              <td><div class="sched-block strength">Open Gym</div></td>
+              <td><div class="sched-block strength">Open Gym</div></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="time-col">6:00 AM</td>
+              <td><div class="sched-block crossfit">CrossFit Forge</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block crossfit">CrossFit Forge</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block crossfit">CrossFit Forge</div></td>
+              <td><div class="sched-block hiit">HIIT Blast</div></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="time-col">7:00 AM</td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block hiit">HIIT Blast</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block hiit">HIIT Blast</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block hiit">HIIT Blast</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+            </tr>
+            <tr>
+              <td class="time-col">8:00 AM</td>
+              <td>—</td>
+              <td><div class="sched-block cardio">Spin Cycle</div></td>
+              <td>—</td>
+              <td><div class="sched-block cardio">Spin Cycle</div></td>
+              <td>—</td>
+              <td><div class="sched-block dance">Zumba Party</div></td>
+              <td><div class="sched-block crossfit">CrossFit Open</div></td>
+            </tr>
+            <tr>
+              <td class="time-col">6:00 PM</td>
+              <td><div class="sched-block boxing">Boxing</div></td>
+              <td><div class="sched-block strength">Powerlifting</div></td>
+              <td><div class="sched-block boxing">Boxing</div></td>
+              <td><div class="sched-block strength">Powerlifting</div></td>
+              <td><div class="sched-block crossfit">CrossFit Forge</div></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="time-col">7:00 PM</td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block hiit">HIIT Blast</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td><div class="sched-block hiit">HIIT Blast</div></td>
+              <td><div class="sched-block yoga">Power Yoga</div></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL TRAINING CTA -->
+  <section class="pt-cta">
+    <div class="container">
+      <div class="pt-cta-inner">
+        <div class="pt-text">
+          <p class="section-tag">// PREMIUM</p>
+          <h2>Want a 1-on-1 Plan?</h2>
+          <p>Our personal trainers craft programs tailored to your body, goals, and schedule. Faster results. Zero guesswork.</p>
+          <ul class="check-list">
+            <li>Custom workout & nutrition plan</li>
+            <li>Weekly check-ins and progress tracking</li>
+            <li>Unlimited trainer messaging</li>
+            <li>Priority class booking</li>
+          </ul>
+          <!-- book_pt -->
+          
+          <a href="{% url 'contact' %}" class="btn-primary">Book a Free Consultation</a>
+        </div>
+        <div class="pt-image" style="background: url('https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600') center/cover"></div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

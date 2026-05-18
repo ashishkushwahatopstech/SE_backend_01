@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-tag">// PRICING</p>
+      <h1>Membership<span> Plans</span></h1>
+      <p>Transparent pricing. No hidden fees. Cancel anytime on yearly plans.</p>
+    </div>
+  </section>
+
+  <!-- BILLING TOGGLE -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="billing-toggle">
+        <!-- Django: ?billing=monthly / ?billing=annual -->
+        <span>Monthly</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="billingToggle"/>
+          <span class="toggle-track"></span>
+        </label>
+        <span>Annual <span class="save-badge">Save 20%</span></span>
+      </div>
+
+      <div class="plans-grid">
+        <!-- for plan in plan -->
+        <!-- for plan in plan -->
+        {% for plan in plans %}
+          <div class="plan-card {% if plan.is_featured %}featured{% endif %}">
+
+            {% if plan.is_featured %}
+              <div class="plan-badge">Most Popular</div>
+            {% endif %}
+
+            <div class="plan-header">
+              <p class="plan-name">{{ plan.name }}</p>
+
+              <div class="plan-price" 
+                  data-monthly="{{ plan.monthly_price }}" 
+                  data-annual="{{ plan.annual_price }}">
+                <span class="currency">₹</span>
+                <span class="amount">{{ plan.monthly_price }}</span>
+                <span class="per">/month</span>
+              </div>
+
+              <p class="plan-desc">{{ plan.description }}</p>
+            </div>
+
+            <ul class="plan-features">
+              {% for feature in plan.features.all %}
+                <li class="{% if feature.is_available %}yes{% else %}no{% endif %}">
+                  {{ feature.name }}
+                </li>
+              {% endfor %}
+            </ul>
+
+            <a href="#" class="btn-outline plan-btn">
+              Get Started
+            </a>
+
+          </div>
+          {% endfor %}
+<!-- 
+        <div class="plan-card featured">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-header">
+            <p class="plan-name">FORGE PRO</p>
+            <div class="plan-price" data-monthly="1799" data-annual="1439">
+              <span class="currency">₹</span>
+              <span class="amount">1799</span>
+              <span class="per">/month</span>
+            </div>
+            <p class="plan-desc">Our most popular plan. Everything you need to crush goals.</p>
+          </div>
+          <ul class="plan-features">
+            <li class="yes">Unlimited gym floor access</li>
+            <li class="yes">Locker room & showers</li>
+            <li class="yes">Unlimited group classes</li>
+            <li class="yes">Fitness assessment (monthly)</li>
+            <li class="yes">1 PT session/month</li>
+            <li class="yes">Nutrition consultation (1x)</li>
+            <li class="yes">2 guest passes/month</li>
+            <li class="no">Priority class booking</li>
+          </ul>
+          <a href="#" class="btn-primary plan-btn" onclick="selectPlan('Forge Pro')">Get Started</a>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-header">
+            <p class="plan-name">ELITE</p>
+            <div class="plan-price" data-monthly="2999" data-annual="2399">
+              <span class="currency">₹</span>
+              <span class="amount">2999</span>
+              <span class="per">/month</span>
+            </div>
+            <p class="plan-desc">Unlimited everything. For those who take it seriously.</p>
+          </div>
+          <ul class="plan-features">
+            <li class="yes">24/7 gym access</li>
+            <li class="yes">Locker room & showers</li>
+            <li class="yes">Unlimited group classes</li>
+            <li class="yes">Fitness assessment (weekly)</li>
+            <li class="yes">4 PT sessions/month</li>
+            <li class="yes">Monthly nutrition plan</li>
+            <li class="yes">Unlimited guest passes</li>
+            <li class="yes">Priority class booking</li>
+          </ul>
+          <a href="#" class="btn-outline plan-btn" onclick="selectPlan('Elite')">Get Started</a>
+        </div> -->
+        <!-- endfor -->
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT FORM SECTION -->
+  <section class="checkout-section" id="checkout-form" style="display:none;">
+    <div class="container">
+      <p class="section-tag center">// SECURE ENROLLMENT</p>
+      <h2 class="section-title center">Complete Your Registration</h2>
+      <div class="checkout-grid">
+        <div class="checkout-form-wrap">
+          <!-- checkout -->
+          
+          <!-- Django: {% csrf_token %} -->
+          <div class="form-section-title">Personal Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <!-- Django: {{ form.first_name }} -->
+              <input type="text" placeholder="Ashish" class="form-input"/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Patel" class="form-input"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <!-- Django: {{ form.email }} -->
+              <input type="email" placeholder="you@example.com" class="form-input"/>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 9876543210" class="form-input"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="date" class="form-input"/>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <!-- Django: {{ form.gender }} -->
+              <select class="form-input">
+                <option>Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section-title">Health & Goals</div>
+          <div class="form-group">
+            <label>Primary Fitness Goal</label>
+            <select class="form-input">
+              <!-- for goal in goal options  -->
+               
+              <option>Weight Loss</option>
+              <option>Muscle Gain</option>
+              <option>Endurance & Stamina</option>
+              <option>Flexibility & Recovery</option>
+              <option>General Fitness</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Any Medical Conditions?</label>
+            <textarea class="form-input" rows="2" placeholder="Leave blank if none. This helps us personalise your training safely."></textarea>
+          </div>
+          <div class="form-group">
+            <label>How did you hear about us?</label>
+            <!-- Django: {{ form.referral }} -->
+            <select class="form-input">
+              <option>Instagram</option>
+              <option>Friend / Referral</option>
+              <option>Google Search</option>
+              <option>Walk-In</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-section-title">Payment</div>
+          <div class="payment-methods">
+            <!-- Django: payment gateway integration here (Razorpay/Stripe) -->
+            <label class="payment-option active">
+              <input type="radio" name="payment" value="upi" checked/> UPI
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="card"/> Card
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="netbanking"/> Net Banking
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cash"/> Pay at Gym
+            </label>
+          </div>
+          <div class="form-group upi-field">
+            <label>UPI ID</label>
+            <input type="text" placeholder="yourname@upi" class="form-input"/>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="terms"/>
+            <!-- terms -->
+            
+            <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Health Waiver</a></label>
+          </div>
+
+          <!-- Django: <button type="submit"> -->
+          <button class="btn-primary large full-w" onclick="submitForm(event)">Confirm Enrollment</button>
+          <!-- Django: </form> -->
+        </div>
+
+        <div class="checkout-summary">
+          <div class="summary-card">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+              <span>Plan</span>
+              <span id="summary-plan">Forge Pro</span>
+            </div>
+            <div class="summary-row">
+              <span>Billing</span>
+              <span id="summary-billing">Monthly</span>
+            </div>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="summary-subtotal">₹1,799</span>
+            </div>
+            <div class="summary-row">
+              <span>GST (18%)</span>
+              <span id="summary-gst">₹323</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span id="summary-total">₹2,122</span>
+            </div>
+            <div class="summary-badge">🔒 Secure payment · SSL encrypted</div>
+            <div class="summary-badge">✅ No joining fee</div>
+            <div class="summary-badge">⭐ 3-day free trial included</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MESSAGE (hidden by default) -->
+  <!-- Django: {% if messages %}{% for message in messages %} -->
+  <div class="success-toast" id="successToast">
+    ✅ Registration submitted! Check your email for confirmation.
+  </div>
+  <!-- Django: {% endfor %}{% endif %} -->
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <p class="section-tag center">// COMMON QUESTIONS</p>
+      <h2 class="section-title center">FAQs</h2>
+      <!-- faq for loop  -->
+      
+      <div class="faq-list">
+        <div class="faq-item     ">  <!-- open class  -->
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Can I freeze my membership? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Yes! You can freeze your membership for up to 60 days per year on Forge Pro and Elite plans. Visit the front desk or use the member portal.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Is there a joining fee? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            No joining fees, no hidden costs. The price you see is what you pay.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Can I bring a guest? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Forge Pro members get 2 guest passes/month. Elite members have unlimited guest passes. Starter members can purchase day passes at ₹299.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What happens if I miss a PT session? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Sessions cancelled 24 hours in advance can be rescheduled. Last-minute cancellations may forfeit the session.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Do you offer student or corporate discounts? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Yes! 15% off for students (with valid ID) and corporate group rates for 5+ employees. Contact us for details.
+          </div>
+        </div>
+      </div>
+
+      <!-- endfor -->
+      
+    </div>
+  </section>
+
+{% endblock %}
+

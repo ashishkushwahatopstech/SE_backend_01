@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">IRONFORGE</div>
+    <div class="hero-content">
+      <p class="hero-tag">// EST. 2015 · SURAT, GUJARAT</p>
+      <h1 class="hero-title">FORGE<br/><span>YOUR BODY.</span><br/>BREAK YOUR LIMITS.</h1>
+      <p class="hero-sub">Elite training. Expert coaches. A community built on iron and sweat.</p>
+      <div class="hero-btns">
+        <a href="{% url 'membership' %}" class="btn-primary large">Start Your Journey</a>
+        <a href="{% url 'classes' %}" class="btn-ghost large">View Classes</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <!-- Django: {{ stats.members }} -->
+      <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Active Members</span></div>
+      <div class="stat"><span class="stat-num">18</span><span class="stat-label">Expert Trainers</span></div>
+      <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Weekly Classes</span></div>
+      <div class="stat"><span class="stat-num">9</span><span class="stat-label">Years of Forging</span></div>
+    </div>
+  </section>
+
+  <!-- ANNOUNCEMENT TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <!-- Django: {% for announcement in announcements %} -->
+      <span>🔥 NEW BATCH: CrossFit Beginners — Mon/Wed/Fri 6AM</span>
+      <span>⚡ SUMMER OFFER: 3-Month Plan at ₹2,999 — Ends July 31</span>
+      <span>💪 ZUMBA with Priya — Every Sat 8AM · Limited Slots</span>
+      <span>🏆 IRONFORGE OPEN COMPETITION — Aug 15, Register Now</span>
+      <span>🔥 NEW BATCH: CrossFit Beginners — Mon/Wed/Fri 6AM</span>
+      <span>⚡ SUMMER OFFER: 3-Month Plan at ₹2,999 — Ends July 31</span>
+      <!-- Django: {% endfor %} -->
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-tag">// WHO WE ARE</p>
+          <h2>Not just a gym.<br/><span>A forge.</span></h2>
+          <p>IronForge is Surat's most intensive performance gym. We don't offer excuses — we offer results. From first-timers to competitive athletes, our space is built to push every limit.</p>
+          <ul class="check-list">
+            <li>State-of-the-art strength & conditioning equipment</li>
+            <li>Certified personal trainers with sport-specific expertise</li>
+            <li>Diet consultation & meal planning support</li>
+            <li>Open 5AM – 11PM, 365 days a year</li>
+          </ul>
+          <a href="{% url 'membership' %}" class="btn-primary">Explore Plans</a>
+        </div>
+        <div class="about-image-grid">
+          <div class="img-block tall" style="background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600') center/cover"></div>
+          <div class="img-block" style="background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400') center/cover"></div>
+          <div class="img-block" style="background: url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400') center/cover"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <p class="section-tag center">// WHAT WE OFFER</p>
+      <h2 class="section-title center">Everything You Need to Win</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏋️</div>
+          <h3>Free Weights Zone</h3>
+          <p>Full Olympic setup — barbells, dumbbells up to 100kg, squat racks, and cable machines.</p>
+          <!-- Django: <a href="">Learn more →</a> -->
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥊</div>
+          <h3>Boxing & MMA</h3>
+          <p>Full-size ring, heavy bags, speed bags, and MMA mats. Sparring sessions every Fri.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚴</div>
+          <h3>Cardio Deck</h3>
+          <p>50+ machines including treadmills, assault bikes, rowing machines, and stair climbers.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧘</div>
+          <h3>Yoga & Recovery</h3>
+          <p>Dedicated studio for yoga, stretching, and active recovery. Classes daily at 7AM & 7PM.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍎</div>
+          <h3>Nutrition Bar</h3>
+          <p>Post-workout protein shakes, meal prep guides, and access to certified dieticians.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Member App</h3>
+          <p>Book classes, track workouts, view diet plans, and manage your membership online.</p>
+          
+          <a href="#" class="card-link">Go to App →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES PREVIEW -->
+  <section class="classes-preview">
+    <div class="container">
+      <p class="section-tag">// POPULAR CLASSES</p>
+      <h2 class="section-title">Train. Sweat. Repeat.</h2>
+      <div class="classes-row">
+        <!-- frathured class for loop -->
+        
+        <div class="class-card">
+          <div class="class-img" style="background: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500') center/cover"></div>
+          <div class="class-info">
+            <span class="class-badge">Popular</span>
+            <h3>CrossFit Forge</h3>
+            <p>High-intensity functional training. Burns up to 800 cal/session.</p>
+            <div class="class-meta">
+              <span>⏱ 60 min</span>
+              <span>👤 Coach Raj</span>
+              <span>🔥 Advanced</span>
+            </div>
+            <!-- url class_detail class.slug book slot  -->
+            
+            <a href="{% url 'classes' %}" class="btn-outline-sm">Book Slot →</a>
+          </div>
+        </div>
+        <div class="class-card">
+          <div class="class-img" style="background: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500') center/cover"></div>
+          <div class="class-info">
+            <span class="class-badge">New</span>
+            <h3>HIIT Blast</h3>
+            <p>Interval training that torches fat and builds endurance fast.</p>
+            <div class="class-meta">
+              <span>⏱ 45 min</span>
+              <span>👤 Coach Meera</span>
+              <span>🟡 Intermediate</span>
+            </div>
+            <a href="{% url 'classes' %}" class="btn-outline-sm">Book Slot →</a>
+          </div>
+        </div>
+        <div class="class-card">
+          <div class="class-img" style="background: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500') center/cover"></div>
+          <div class="class-info">
+            <span class="class-badge">All Levels</span>
+            <h3>Power Yoga</h3>
+            <p>Build flexibility, core strength, and mental clarity — all in one mat.</p>
+            <div class="class-meta">
+              <span>⏱ 50 min</span>
+              <span>👤 Coach Anita</span>
+              <span>🟢 Beginner</span>
+            </div>
+            <a href="{% url 'classes' %}" class="btn-outline-sm">Book Slot →</a>
+          </div>
+        </div>
+        <!-- endfor  -->
+      </div>
+      <div class="center-btn">
+        <a href="{% url 'classes' %}" class="btn-primary">See All Classes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINER SPOTLIGHT -->
+  <section class="trainers">
+    <div class="container">
+      <p class="section-tag center">// OUR COACHES</p>
+      <h2 class="section-title center">Built by Champions</h2>
+      <div class="trainers-grid">
+        <!-- for trainer in trainers  -->
+        
+        <div class="trainer-card">
+          <div class="trainer-img" style="background: url('https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400') center/cover"></div>
+          <div class="trainer-info">
+            <h3>Rajesh Patel</h3>
+            <span class="trainer-role">Head of Strength & Conditioning</span>
+            <p>10+ years | Ex-State Powerlifter | NSCA Certified</p>
+            <!-- url trainer_detail trainer.slug view profile  -->
+            
+            <a href="#" class="card-link">View Profile →</a>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <div class="trainer-img" style="background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400') center/cover"></div>
+          <div class="trainer-info">
+            <h3>Meera Shah</h3>
+            <span class="trainer-role">CrossFit & HIIT Specialist</span>
+            <p>8 years | CrossFit Level 2 | Nutrition Coach</p>
+            <a href="#" class="card-link">View Profile →</a>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <div class="trainer-img" style="background: url('https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400') center/cover"></div>
+          <div class="trainer-info">
+            <h3>Anita Verma</h3>
+            <span class="trainer-role">Yoga & Recovery Expert</span>
+            <p>12 years | RYT-500 Certified | Sports Therapist</p>
+            <a href="#" class="card-link">View Profile →</a>
+          </div>
+        </div>
+        <div class="trainer-card">
+          <div class="trainer-img" style="background: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400') center/cover"></div>
+          <div class="trainer-info">
+            <h3>Arjun Mehta</h3>
+            <span class="trainer-role">Boxing & MMA Coach</span>
+            <p>6 years | Pro Boxer | ISKA Certified Instructor</p>
+            <a href="#" class="card-link">View Profile →</a>
+          </div>
+        </div>
+        <!-- endfor  -->
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <p class="section-tag center">// MEMBER STORIES</p>
+      <h2 class="section-title center">Real People. Real Results.</h2>
+      <div class="testimonials-grid">
+        <!-- review in reviews  -->
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Lost 18kg in 5 months. The trainers here don't let you give up. Best investment I've made for my health."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">DK</div>
+            <div>
+              <strong>Dhruv Kapoor</strong>
+              <span>Member since 2022</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"The CrossFit classes changed my life. Coach Raj is incredibly knowledgeable. Community here is unmatched."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">NP</div>
+            <div>
+              <strong>Nidhi Parikh</strong>
+              <span>Member since 2021</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★☆</div>
+          <p>"Came for weight loss, stayed for the vibe. Great equipment, clean facility, and the nutrition bar is 🔥"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SM</div>
+            <div>
+              <strong>Siddharth Modi</strong>
+              <span>Member since 2023</span>
+            </div>
+          </div>
+        </div>
+        <!-- endfor  -->
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to Start Forging?</h2>
+      <p>First 3 days are FREE. No commitments. Just results.</p>
+      <div class="cta-actions">
+        <a href="{% url 'membership' %}" class="btn-primary large">See Membership Plans</a>
+        <a href="{% url 'contact' %}" class="btn-ghost large">Book a Free Trial</a>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
